@@ -16,8 +16,12 @@ public class Problem {
      */
 
     public static String stringCopies(String word, int n) {
+        String ans = "";
+        for (int i = 0; i < n; i++) {
+            ans += word;
+        }
 
-        return null;
+        return ans;
     }
 
 
@@ -32,8 +36,17 @@ public class Problem {
      */
 
     public static Boolean followedX(String str) {
+        for (int i = 0; i < str.length() - 2; i++) {
+            char current = str.charAt(i);
+            if (current == 'x') {
+                char next = str.charAt(i + 1);
+                if (next == current) {
+                    return true;
+                }
+            }
 
-        return null;
+        }
+        return false;
     }
 
 
@@ -50,8 +63,14 @@ public class Problem {
      */
 
     public static Integer subTwo(String str) {
-
-        return null;
+        Integer counter = 0;
+        for (int i = 0; i < str.length() - 2; i++) {
+            char current = str.charAt(i);
+            if (current == str.charAt(i + 1)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
 
@@ -70,8 +89,16 @@ public class Problem {
      */
 
     public static Boolean basicNumbers123(int[] nums) {
-
-        return null;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 1) {
+                if (nums[i + 1] == 2) {
+                    if (nums[i + 2] == 3) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
 
@@ -90,8 +117,19 @@ public class Problem {
      */
 
     public static String scrambleOfLetters(String scramble) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(scramble.charAt(0));
+        builder.append(scramble.charAt(1));
+        builder.append(scramble.charAt(4));
+        builder.append(scramble.charAt(5));
+        if (scramble.length() >= 9) {
+            builder.append(scramble.charAt(8));
+        }
+        if (scramble.length() >= 10) {
+            builder.append(scramble.charAt(9));
 
-        return null;
+        }
+        return builder.toString();
     }
 
 
@@ -108,7 +146,16 @@ public class Problem {
      */
 
     public static Boolean dontAcceptTriples(int[] score) {
-
-        return null;
+        for (int i = 0; i < score.length - 2; i++) {
+            Integer current = score[i];
+            Integer next = score[i + 1];
+            Integer third = score[i + 2];
+            if (current == next) {
+                if (next == third) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
